@@ -4,10 +4,6 @@ var remainingTime = 75;
 //Variable to track whether time is running or not
 var isStopped = true;
 
-//variable to advance the questions
-var 
-
-
 //Select countdown container
 const countContainer = document.getElementById("countdown-number");
 

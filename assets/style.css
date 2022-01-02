@@ -1,0 +1,13 @@
+
+
+form li {
+    display: none;
+}
+
+#score-scn {
+    display: none;
+}
+
+#high-scores {
+    display: none;
+}
