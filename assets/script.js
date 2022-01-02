@@ -4,7 +4,8 @@ var remainingTime = 75;
 //Variable to track whether time is running or not
 var isStopped = true;
 
-
+//variable to advance the questions
+var 
 
 
 //Select countdown container
@@ -54,4 +55,10 @@ const startButton = document.getElementById("start");
 
 //attach onclick event to button
 startButton.onclick = startTimer;
+
+//var startQuiz pulls startTimer and sets the first question to visible
+
+//submit logs your initials and score in localStorage
+
+//radio buttons 
 
