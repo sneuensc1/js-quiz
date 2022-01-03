@@ -64,10 +64,14 @@ var startQuiz = function() {
 //add functionality to the start button
 document.getElementById("start").addEventListener("click", startQuiz);
 
-var radioClick = function() {
+var radioClick = function(event) {
     questions.children[currentQuestion].classList.remove("show-question");
     currentQuestion++;
     questions.children[currentQuestion].classList.add("show-question");
+    if (event.target.dataset.correct === "1") {}
+    else {
+        remainingTime -= 10;
+    }
 }
 
 //isn't working
