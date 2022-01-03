@@ -11,7 +11,7 @@ header {
 }
 
 /*does not work*/
-header .countdown-number {
+header #countdown-number {
     font-size: 22px;
 }
 
@@ -30,17 +30,21 @@ li {
 }
 
 /*adjust visibility */
-#visible {
+.visible {
     display:contents;
 }
 
-#hidden {
+.hidden {
     display: none;
 }
 
-/* form li {
+.show-question {
+    display: list-item;
+}
+
+form li {
     display: none;
-}*/
+}
 
 /* #score-scn {
     display: none;

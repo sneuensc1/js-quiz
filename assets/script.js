@@ -53,11 +53,18 @@ const resetTimer = () => {
     countContainer.innerHTML = remainingTime;
 }
 
-//add functionality to the start button
-const startButton = document.getElementById("start");
+//function to begin the quiz
+var startQuiz = function() {
+    startTimer();
+    document.querySelector("div.visible").classList.replace("visible", "hidden");
+    //add li to show
+    questions.children[currentQuestion];
+    //add class to li
+    questions.children[currentQuestion].classList.add("show-question");
+}
 
-//attach onclick event to button
-startButton.onclick = startQuiz;
+//add functionality to the start button
+document.getElementById("start").addEventListener("click", startQuiz);
 
 //isn't working
 var radios = document.querySelectorAll("selector");
@@ -70,13 +77,7 @@ for (var i = 0; i < radios.length; i++) {
 }
 
 //isn't working
-var startQuiz = function() {
-    startTimer();
-    div.classList.replace("visible", "hidden");
-    //add li to show
-    questions.children[currentQuestion];
-    //add class to li
-}
+
 
 //- If it's not subtract 10 seconds from the timer 
 //- hide the current question
@@ -86,12 +87,12 @@ var startQuiz = function() {
 //And you can increase/decrease currentQuestion by 1 with ++ and --
 
 //no idea if this works, the previous functions don't so I can't test it
-var scoreNameInput = document.querySelector("input[name='name']").value;
+var scoreNameInput = document.querySelector("#name").value;
 var scoreNumber = remainingTime;
 var scores = scoreNameInput, scoreNumber;
 
 //add functionality to the start button
-const submitButton = document.getElementById("submit");
+const submitButton = document.getElementById("submit-btn");
 
 //attach onclick event to button
 submitButton.onclick = saveScore;
@@ -100,7 +101,7 @@ var saveScore = function() {
     localStorage.setItem("scores", JSON,stringify(scores));
 }
 
-var loadScores = function() {
+//var loadScores = function() 
     //moving to the last page needs to load these >> localStorage.getItem("scores");
 
 //need a clear score button?? It has it in the example but not the instructions
