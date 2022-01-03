@@ -68,8 +68,14 @@ document.getElementById("start").addEventListener("click", startQuiz);
 
 var radioClick = function(event) {
     questions.children[currentQuestion].classList.remove("show-question");
-    currentQuestion++;
-    questions.children[currentQuestion].classList.add("show-question");
+    if (currentQuestion < 4) {
+        currentQuestion++;
+        console.log(currentQuestion)
+        questions.children[currentQuestion].classList.add("show-question");
+    }
+    else {
+        stopTimer;
+    }
     if (event.target.dataset.correct === "1") {
         verify.innerText = "Correct";
     }
