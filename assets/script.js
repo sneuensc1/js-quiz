@@ -65,7 +65,9 @@ var startQuiz = function() {
 document.getElementById("start").addEventListener("click", startQuiz);
 
 var radioClick = function() {
-    console.log("Hello")
+    questions.children[currentQuestion].classList.remove("show-question");
+    currentQuestion++;
+    questions.children[currentQuestion].classList.add("show-question");
 }
 
 //isn't working
