@@ -3,12 +3,13 @@ var remainingTime = 75;
 //Variable to track whether time is running or not
 var isStopped = true;
 
-//pull up the question id
-//var questionList = getElementById("questions");
+//set starting quesiton to 0
+var currentQuestion = 0
 
-let currentQuestion = 0;
+var questions = document.getElementById("questions");
 
-
+//add data attribute for correct answer
+var rightAnswer = document.querySelector("#data-correct");
 
 //Select countdown container
 const countContainer = document.getElementById("countdown-number");
@@ -56,36 +57,31 @@ const resetTimer = () => {
 const startButton = document.getElementById("start");
 
 //attach onclick event to button
-startButton.onclick = startTimer;
+startButton.onclick = startQuiz;
 
-//var startQuiz pulls startTimer and sets the first question to visible
+//isn't working
+var radios = document.querySelectorAll("selector");
+for (var i = 0; i < radios.length; i++) {
+    const buttonContainer = document.querySelectorAll("input[type='radio']");
+    console.log('buttonContainer', buttonContainer);
+    buttonContainer.addEventListener('click', event => {
+    console.log(event.target.value)
+}) 
+}
 
-//submit logs your initials and score in localStorage
-
-//radio buttons 
-
-//on start set the current to 0 (the first one)
-//Display the current question by adding a class
-//On an answer:
-//- verify if its right
-
-
+//isn't working
+var startQuiz = function() {
+    startTimer();
+    div.classList.replace("visible", "hidden");
+    //add li to show
+    questions.children[currentQuestion];
+    //add class to li
+}
 
 //- If it's not subtract 10 seconds from the timer 
 //- hide the current question
 //- update current to the next question
 //- show the next question if there are more questions
 //- record the score if there aren't
-
-//var currentQuestion = 0; 
-//Then when you want the li you can do questions.children[currentQuestion]
 //And you can increase/decrease currentQuestion by 1 with ++ and --
-
-const buttonContainer = document.querySelector(input[type="radio"]);
-console.log('buttonContainer', buttonContainer);
-
-buttonContainer.addEventListener('click', event => {
-  console.log(event.target.value)
-}) 
-
 

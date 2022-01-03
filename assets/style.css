@@ -1,13 +1,21 @@
 
 
+#visible {
+    display:contents;
+}
+
+#hidden {
+    display: none;
+}
+
 /* form li {
     display: none;
-} */
+}*/
 
-#score-scn {
+/* #score-scn {
     display: none;
-}
+}*/
 
-#high-scores {
+/*#high-scores {
     display: none;
-}
+}*/
