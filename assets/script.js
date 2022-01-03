@@ -11,6 +11,8 @@ var questions = document.getElementById("questions");
 //add data attribute for correct answer
 var rightAnswer = document.querySelector("#data-correct");
 
+var verify = document.getElementById("verify-response");
+
 //Select countdown container
 const countContainer = document.getElementById("countdown-number");
 
@@ -68,9 +70,12 @@ var radioClick = function(event) {
     questions.children[currentQuestion].classList.remove("show-question");
     currentQuestion++;
     questions.children[currentQuestion].classList.add("show-question");
-    if (event.target.dataset.correct === "1") {}
+    if (event.target.dataset.correct === "1") {
+        verify.innerText = "Correct";
+    }
     else {
         remainingTime -= 10;
+        verify.innerText = "Incorrect";
     }
 }
 
