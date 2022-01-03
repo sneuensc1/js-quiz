@@ -11,8 +11,6 @@ var questions = document.getElementById("questions");
 //add data attribute for correct answer
 var rightAnswer = document.querySelector("#data-correct");
 
-//var scores
-
 //Select countdown container
 const countContainer = document.getElementById("countdown-number");
 
@@ -87,8 +85,16 @@ var startQuiz = function() {
 //- record the score if there aren't
 //And you can increase/decrease currentQuestion by 1 with ++ and --
 
-//button saves the scores
-//have to look at how I captured info to capture the initials
+//no idea if this works, the previous functions don't so I can't test it
+var scoreNameInput = document.querySelector("input[name='name']").value;
+var scoreNumber = remainingTime;
+var scores = scoreNameInput, scoreNumber;
+
+//add functionality to the start button
+const submitButton = document.getElementById("submit");
+
+//attach onclick event to button
+submitButton.onclick = saveScore;
 
 var saveScore = function() {
     localStorage.setItem("scores", JSON,stringify(scores));
@@ -99,4 +105,3 @@ var loadScores = function() {
 
 //need a clear score button?? It has it in the example but not the instructions
 //need a start over button, I'm wondering if button can go to reset()
-//need to define scores
