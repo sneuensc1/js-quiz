@@ -57,8 +57,6 @@ const resetTimer = () => {
 var startQuiz = function() {
     startTimer();
     document.querySelector("div.visible").classList.replace("visible", "hidden");
-    //add li to show
-    questions.children[currentQuestion];
     //add class to li
     questions.children[currentQuestion].classList.add("show-question");
 }
@@ -67,13 +65,9 @@ var startQuiz = function() {
 document.getElementById("start").addEventListener("click", startQuiz);
 
 //isn't working
-var radios = document.querySelectorAll("selector");
+var radios = document.querySelectorAll("input[type=radio']");
 for (var i = 0; i < radios.length; i++) {
-    const buttonContainer = document.querySelectorAll("input[type='radio']");
-    console.log('buttonContainer', buttonContainer);
-    buttonContainer.addEventListener('click', event => {
-    console.log(event.target.value)
-}) 
+    radios[i].addEventListener("click");
 }
 
 //isn't working
