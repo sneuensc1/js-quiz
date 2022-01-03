@@ -1,5 +1,35 @@
+/* Set basic layout */
+body {
+    text-align: center;
+    background-color: bisque;
+    color: midnightblue;
+}
 
+/* adust for the timer */
+header {
+    text-align: left;
+}
 
+/*does not work*/
+header .countdown-number {
+    font-size: 22px;
+}
+
+/*change font sizes as appropriate */
+h2 {
+    font-size: 35px;
+}
+
+p {
+    font-size: 25px;
+}
+
+li {
+    text-align: left;
+    font-size: 30px;
+}
+
+/*adjust visibility */
 #visible {
     display:contents;
 }
