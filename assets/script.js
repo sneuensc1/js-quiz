@@ -64,13 +64,15 @@ var startQuiz = function() {
 //add functionality to the start button
 document.getElementById("start").addEventListener("click", startQuiz);
 
-//isn't working
-var radios = document.querySelectorAll("input[type=radio']");
-for (var i = 0; i < radios.length; i++) {
-    radios[i].addEventListener("click");
+var radioClick = function() {
+    console.log("Hello")
 }
 
 //isn't working
+var radios = document.querySelectorAll("input[type='radio']");
+for (var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener("click", radioClick)
+}
 
 
 //- If it's not subtract 10 seconds from the timer 
