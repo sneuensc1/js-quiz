@@ -31,10 +31,9 @@ const renderTime = () => {
     //timeout on zero
     if (remainingTime === 0) {
         isStopped = true;
-        document.querySelector(".show-questions").classList.remove("show-questions");
+        document.querySelector(".show-question").classList.remove("show-question");
         document.getElementById("score-scn").classList.remove("hidden");
         clearInterval(timer);
-        remainingTime = 75;
     }
 };
 
