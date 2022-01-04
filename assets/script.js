@@ -14,6 +14,7 @@ var isStopped = true;
 var currentQuestion = 0
 var questions = document.getElementById("questions");
 var verify = document.getElementById("verify-response");
+var scoreList = document.getElementById("high-score-list");
 
 //add functionality to the radio buttons
 var radios = document.querySelectorAll("input[type='radio']");
@@ -102,6 +103,14 @@ for (var i = 0; i < radios.length; i++) {
 //add functionality to the start button
 var submitButton = document.getElementById("submit-btn");
 
+var displayScores = function () {
+    scoreLis = "";
+    for (var i = 0; i < highScores.length; i++) {
+        scoreLis += "<li>" + highScores[i].name + "" + highScores[i].time + "</li>";
+    }
+    displayScores.innerHTML = scoreLis;
+}
+
 var compareQuizScores = function (a,b) {
     if (a.time < b.time) {
        return 1; 
@@ -116,6 +125,7 @@ var saveScore = function() {
     var quizScore = {"name": scoreNameInput, "time": scoreNumber }
     highScores.push(quizScore);
     highScores.sort(compareQuizScores);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
     verify.innerText = ""
     document.getElementById("score-scn").classList.add("hidden");
     document.getElementById("high-scores").classList.remove("hidden");
@@ -124,9 +134,7 @@ var saveScore = function() {
 //attach onclick event to button
 submitButton.addEventListener("click", saveScore);
 
-
-//var loadScores = function() 
-    //moving to the last page needs to load these >> localStorage.getItem("scores");
+displayScores();
 
 var resetButton = document.getElementById("reset-btn");
 
