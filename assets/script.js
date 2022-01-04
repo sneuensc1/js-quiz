@@ -75,6 +75,7 @@ var radioClick = function(event) {
     }
     else {
         stopTimer();
+        document.getElementById("score-scn").classList.remove("hidden");
     }
     if (event.target.dataset.correct === "1") {
         verify.innerText = "Correct";
@@ -91,18 +92,20 @@ for (var i = 0; i < radios.length; i++) {
 }
 
 //add functionality to the start button
-const submitButton = document.getElementById("submit-btn");
+var submitButton = document.getElementById("submit-btn");
 
 var saveScore = function() {
     var scoreNameInput = document.querySelector("#name").value;
     var scoreNumber = remainingTime;
     var quizScores = [scoreNameInput, scoreNumber];
     localStorage.setItem("quizScores", JSON.stringify(quizScores));
+    document.getElementById("score-scn").classList.add("hidden");
+    document.getElementById("high-scores").classList.remove("hidden");
 }
 
 //attach onclick event to button
-submitButton.onclick = saveScore;
-console.log("quizscores");
+submitButton.addEventListener("click", saveScore);
+
 
 //var loadScores = function() 
     //moving to the last page needs to load these >> localStorage.getItem("scores");

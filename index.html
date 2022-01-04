@@ -17,7 +17,7 @@
     </header>
 
     <!--First Page Display-->
-    <div id="title-page" class="visible">
+    <div id="title-page">
         <h2>Coding Quiz Challenge</h2>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time 10 seconds!</p>
         <button id="start">Start Quiz</button>
@@ -104,13 +104,13 @@
 
     <div id="verify-response"></div>
     
-    <div id="score-scn">
+    <div id="score-scn" class="hidden">
         <h2>All done!</h2>
         <p>Enter your initials! <input id="name" type="text"></p>
         <button id="submit-btn">Submit</button>
     </div>
     
-    <div id="high-scores">
+    <div id="high-scores" class="hidden">
         <h2>High Scores</h2>
     <button id="reset-btn">Start Over</button>
     <button id="clear-btn">Clear high scores</button>
