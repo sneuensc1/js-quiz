@@ -31,6 +31,8 @@ const renderTime = () => {
     //timeout on zero
     if (remainingTime === 0) {
         isStopped = true;
+        document.querySelector(".show-questions").classList.remove("show-questions");
+        document.getElementById("score-scn").classList.remove("hidden");
         clearInterval(timer);
         remainingTime = 75;
     }
@@ -104,11 +106,11 @@ for (var i = 0; i < radios.length; i++) {
 var submitButton = document.getElementById("submit-btn");
 
 var displayScores = function () {
-    scoreLis = "";
+    var scoreLis = "";
     for (var i = 0; i < highScores.length; i++) {
         scoreLis += "<li>" + highScores[i].name + "" + highScores[i].time + "</li>";
     }
-    displayScores.innerHTML = scoreLis;
+    scoreList.innerHTML = scoreLis;
 }
 
 var compareQuizScores = function (a,b) {
@@ -126,15 +128,14 @@ var saveScore = function() {
     highScores.push(quizScore);
     highScores.sort(compareQuizScores);
     localStorage.setItem("highScores", JSON.stringify(highScores));
+    displayScores();
     verify.innerText = ""
     document.getElementById("score-scn").classList.add("hidden");
     document.getElementById("high-scores").classList.remove("hidden");
 }
 
-//attach onclick event to button
+//add event to button
 submitButton.addEventListener("click", saveScore);
-
-displayScores();
 
 var resetButton = document.getElementById("reset-btn");
 
@@ -145,3 +146,14 @@ var resetQuiz = function() {
 }
 
 resetButton.addEventListener("click", resetQuiz)
+
+var clearButton = document.getElementById("clear-btn");
+
+//add the functionality
+var clearScores = function () {
+    localStorage.setItem("quizScores", JSON.stringify([]));
+    scoreList.innerHTML = "";
+    highScores = [];
+}
+
+clearButton.addEventListener("click", clearScores)
