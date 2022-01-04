@@ -2,15 +2,9 @@
 var remainingTime = 75;
 //Variable to track whether time is running or not
 var isStopped = true;
-
 //set starting quesiton to 0
 var currentQuestion = 0
-
 var questions = document.getElementById("questions");
-
-//add data attribute for correct answer
-var rightAnswer = document.querySelector("#data-correct");
-
 var verify = document.getElementById("verify-response");
 
 //Select countdown container
@@ -74,7 +68,7 @@ var radioClick = function(event) {
         questions.children[currentQuestion].classList.add("show-question");
     }
     else {
-        stopTimer;
+        stopTimer();
     }
     if (event.target.dataset.correct === "1") {
         verify.innerText = "Correct";
@@ -90,14 +84,6 @@ var radios = document.querySelectorAll("input[type='radio']");
 for (var i = 0; i < radios.length; i++) {
     radios[i].addEventListener("click", radioClick)
 }
-
-
-//- If it's not subtract 10 seconds from the timer 
-//- hide the current question
-//- update current to the next question
-//- show the next question if there are more questions
-//- record the score if there aren't
-//And you can increase/decrease currentQuestion by 1 with ++ and --
 
 //no idea if this works, the previous functions don't so I can't test it
 var scoreNameInput = document.querySelector("#name").value;
@@ -117,5 +103,12 @@ var saveScore = function() {
 //var loadScores = function() 
     //moving to the last page needs to load these >> localStorage.getItem("scores");
 
-//need a clear score button?? It has it in the example but not the instructions
-//need a start over button, I'm wondering if button can go to reset()
+var resetButton = document.getElementById("reset-btn");
+
+var resetQuiz = function() {
+    document.getElementById("high-scores").classList.add("hidden");
+    document.getElementById("title-page").classList.remove("hidden");
+    resetTimer();
+}
+
+resetButton.addEventListener("click", resetQuiz)

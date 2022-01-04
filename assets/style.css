@@ -30,10 +30,6 @@ li {
 }
 
 /*adjust visibility */
-.visible {
-    display:contents;
-}
-
 .hidden {
     display: none;
 }
@@ -45,11 +41,3 @@ li {
 form li {
     display: none;
 }
-
-/* #score-scn {
-    display: none;
-}*/
-
-/*#high-scores {
-    display: none;
-}*/
