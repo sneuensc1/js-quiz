@@ -99,6 +99,7 @@ var saveScore = function() {
     var scoreNumber = remainingTime;
     var quizScores = [scoreNameInput, scoreNumber];
     localStorage.setItem("quizScores", JSON.stringify(quizScores));
+    verify.innerText = ""
     document.getElementById("score-scn").classList.add("hidden");
     document.getElementById("high-scores").classList.remove("hidden");
 }
