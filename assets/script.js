@@ -108,6 +108,7 @@ var compareQuizScores = function (a,b) {
     } else {
         return -1;
     }
+}
 
 var saveScore = function() {
     var scoreNameInput = document.querySelector("#name").value;
@@ -118,7 +119,6 @@ var saveScore = function() {
     verify.innerText = ""
     document.getElementById("score-scn").classList.add("hidden");
     document.getElementById("high-scores").classList.remove("hidden");
-
 }
 
 //attach onclick event to button
