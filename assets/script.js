@@ -9,9 +9,6 @@ var verify = document.getElementById("verify-response");
 
 //add functionality to the radio buttons
 var radios = document.querySelectorAll("input[type='radio']");
-for (var i = 0; i < radios.length; i++) {
-    radios[i].addEventListener("click", radioClick);
-}
 
 //Select countdown container
 const countContainer = document.getElementById("countdown-number");
@@ -86,6 +83,11 @@ var radioClick = function(event) {
         remainingTime -= 10;
         verify.innerText = "Incorrect";
     }
+}
+
+//for loop for radio buttons
+for (var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener("click", radioClick);
 }
 
 //no idea if this works, the previous functions don't so I can't test it
