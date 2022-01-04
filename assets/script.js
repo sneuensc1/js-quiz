@@ -7,6 +7,12 @@ var currentQuestion = 0
 var questions = document.getElementById("questions");
 var verify = document.getElementById("verify-response");
 
+//add functionality to the radio buttons
+var radios = document.querySelectorAll("input[type='radio']");
+for (var i = 0; i < radios.length; i++) {
+    radios[i].addEventListener("click", radioClick);
+}
+
 //Select countdown container
 const countContainer = document.getElementById("countdown-number");
 
@@ -52,7 +58,10 @@ const resetTimer = () => {
 //function to begin the quiz
 var startQuiz = function() {
     startTimer();
-    document.querySelector("div.visible").classList.replace("visible", "hidden");
+    currentQuestion = 0;
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].checked = false;}
+    document.getElementById("title-page").classList.add("hidden");
     //add class to li
     questions.children[currentQuestion].classList.add("show-question");
 }
@@ -77,12 +86,6 @@ var radioClick = function(event) {
         remainingTime -= 10;
         verify.innerText = "Incorrect";
     }
-}
-
-//isn't working
-var radios = document.querySelectorAll("input[type='radio']");
-for (var i = 0; i < radios.length; i++) {
-    radios[i].addEventListener("click", radioClick)
 }
 
 //no idea if this works, the previous functions don't so I can't test it
