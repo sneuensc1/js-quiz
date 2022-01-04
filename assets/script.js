@@ -1,3 +1,11 @@
+let highScores = localStorage.getItem("quizScores");
+if (highScores === null) {
+    highScores = [];
+}
+else {
+    highScores = JSON.parse(highScores);
+}
+
 //variable to store count
 var remainingTime = 75;
 //Variable to track whether time is running or not
@@ -94,14 +102,23 @@ for (var i = 0; i < radios.length; i++) {
 //add functionality to the start button
 var submitButton = document.getElementById("submit-btn");
 
+var compareQuizScores = function (a,b) {
+    if (a.time < b.time) {
+       return 1; 
+    } else {
+        return -1;
+    }
+
 var saveScore = function() {
     var scoreNameInput = document.querySelector("#name").value;
     var scoreNumber = remainingTime;
-    var quizScores = [scoreNameInput, scoreNumber];
-    localStorage.setItem("quizScores", JSON.stringify(quizScores));
+    var quizScore = {"name": scoreNameInput, "time": scoreNumber }
+    highScores.push(quizScore);
+    highScores.sort(compareQuizScores);
     verify.innerText = ""
     document.getElementById("score-scn").classList.add("hidden");
     document.getElementById("high-scores").classList.remove("hidden");
+
 }
 
 //attach onclick event to button
