@@ -90,20 +90,19 @@ for (var i = 0; i < radios.length; i++) {
     radios[i].addEventListener("click", radioClick);
 }
 
-//no idea if this works, the previous functions don't so I can't test it
-var scoreNameInput = document.querySelector("#name").value;
-var scoreNumber = remainingTime;
-var scores = scoreNameInput, scoreNumber;
-
 //add functionality to the start button
 const submitButton = document.getElementById("submit-btn");
 
+var saveScore = function() {
+    var scoreNameInput = document.querySelector("#name").value;
+    var scoreNumber = remainingTime;
+    var quizScores = [scoreNameInput, scoreNumber];
+    localStorage.setItem("quizScores", JSON.stringify(quizScores));
+}
+
 //attach onclick event to button
 submitButton.onclick = saveScore;
-
-var saveScore = function() {
-    localStorage.setItem("scores", JSON,stringify(scores));
-}
+console.log("quizscores");
 
 //var loadScores = function() 
     //moving to the last page needs to load these >> localStorage.getItem("scores");
